@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.UserMapper">
+    <!--查-->
+    <select id="findAll" resultType="user">
+        select * from sys_user
+    </select>
+    <!--插入-->
+    <insert id="insert" parameterType="domain.User">
+        insert into sys_user values (#{id},#{username},#{email},#{password},#{phoneNum})
+    </insert>
+
+    <!--修改操作-->
+    <update id="update" parameterType="domain.User">
+        update sys_user set username = #{username} where id=#{id}
+    </update>
+    <!--删除操作-->
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from sys_user where id=#{id}
+    </delete>
+
+
+</mapper>
